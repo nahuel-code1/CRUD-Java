@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+// La anotación @Service hará de este un servicio administrado por Spring que puedes inyectar en tu vista.
 @Service
 public class CrmService {
 
@@ -17,6 +18,7 @@ public class CrmService {
     private final CompanyRepository companyRepository;
     private final StatusRepository statusRepository;
 
+    // //Utilice la inyección del constructor Spring para cablear automáticamente los repositorios de la base de datos.
     public CrmService(ContactRepository contactRepository,
                       CompanyRepository companyRepository,
                       StatusRepository statusRepository) {
@@ -25,7 +27,8 @@ public class CrmService {
         this.statusRepository = statusRepository;
     }
 
-    public List<Contact> findAllContacts(String stringFilter) {
+    // Compruebe si hay un filtro activo, devuelva todos los contactos o utilice el repositorio para filtrar en función de la cadena.
+    public List<Contact> findAllContacts(String stringFilter) {  
         if (stringFilter == null || stringFilter.isEmpty()) {
             return contactRepository.findAll();
         } else {
@@ -41,6 +44,8 @@ public class CrmService {
         contactRepository.delete(contact);
     }
 
+    // Las clases de servicio a menudo incluyen validación y otras reglas de negocio antes de conservar los datos. Aquí, comprueba 
+    // que no está intentando accidentalmente guardar un objeto nulo.
     public void saveContact(Contact contact) {
         if (contact == null) {
             System.err.println("Contact is null. Are you sure you have connected your form to the application?");

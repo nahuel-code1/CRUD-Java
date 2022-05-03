@@ -1,8 +1,6 @@
 package com.example.application.views.list;
 
-import com.example.application.data.entity.Company;
 import com.example.application.data.entity.Contact;
-import com.example.application.data.entity.Status;
 import com.example.application.data.service.CrmService;
 import com.example.application.views.MainLayout;
 import com.vaadin.flow.component.button.Button;

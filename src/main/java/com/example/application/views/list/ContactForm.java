@@ -23,7 +23,8 @@ import java.util.List;
 public class ContactForm extends FormLayout {
   private Contact contact;
 
-  TextField firstName = new TextField("First name");
+  // Los componentes se crean instanciando un objeto especifico (Predeterminado del framework)
+  TextField firstName = new TextField("First name"); // En este caso, tenemos un objeto que se usara como un campo para introducir un nombre
   TextField lastName = new TextField("Last name");
   EmailField email = new EmailField("Email");
   ComboBox<Status> status = new ComboBox<>("Status");

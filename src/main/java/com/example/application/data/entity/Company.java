@@ -10,6 +10,7 @@ import javax.validation.constraints.NotBlank;
 import com.example.application.data.AbstractEntity;
 import org.hibernate.annotations.Formula;
 
+// @Entity anotación define que dicha clase es una entidad y se asignará a una tabla de base de datos
 @Entity
 public class Company extends AbstractEntity {
     @NotBlank
